@@ -1,0 +1,23 @@
+# Core SSRF Scanner Dependencies
+aiohttp>=3.8.0
+asyncio
+requests>=2.28.0
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+python-dotenv>=1.0.0
+colorama>=0.4.5
+tqdm>=4.64.0
+fake-useragent>=1.1.0
+urllib3>=1.26.0
+playwright>=1.25.0
+
+# Dashboard & Real-time Features
+flask>=2.2.0
+flask-socketio>=5.3.0
+eventlet>=0.33.0
+python-socketio[client]>=5.7.0
+fpdf2>=2.7.0
+
+# RAG Engine & AI Analysis
+chromadb>=0.4.0
+google-generativeai>=0.3.0

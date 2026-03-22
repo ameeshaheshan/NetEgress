@@ -1,0 +1,1323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NET-EGRESS | Advanced SSRF Operations Center</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/dashboard.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar">
+        <div class="logo"><span>🔍</span> NET-EGRESS</div>
+        <div class="sidebar-section-label">MONITORING</div>
+        <nav>
+          <ul class="nav-menu">
+            <li
+              class="nav-item active"
+              id="nav-live"
+              onclick="showView('live', this)"
+            >
+              <span>📡</span> Live Monitor
+            </li>
+            <li
+              class="nav-item"
+              id="nav-topology"
+              onclick="showView('topology', this)"
+            >
+              <span>🗺️</span> Network Topology
+            </li>
+            <li class="nav-item" id="nav-ai" onclick="showView('ai', this)">
+              <span>🤖</span> AI Log Analysis
+            </li>
+            <li
+              class="nav-item"
+              id="nav-severity"
+              onclick="showView('severity', this)"
+            >
+              <span>🎯</span> CVSS Scoring
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-section-label">ATTACK TOOLS</div>
+        <nav>
+          <ul class="nav-menu">
+            <li
+              class="nav-item"
+              id="nav-payload"
+              onclick="showView('payload', this)"
+            >
+              <span>💉</span> Payload IDE
+            </li>
+            <li class="nav-item" id="nav-waf" onclick="showView('waf', this)">
+              <span>🛡️</span> WAF Evasion
+            </li>
+            <li
+              class="nav-item"
+              id="nav-repeater"
+              onclick="showView('repeater', this)"
+            >
+              <span>🔁</span> Traffic Repeater
+            </li>
+            <li class="nav-item" id="nav-dns" onclick="showView('dns', this)">
+              <span>🌐</span> DNS Rebinding
+            </li>
+            <li
+              class="nav-item"
+              id="nav-cloud"
+              onclick="showView('cloud', this)"
+            >
+              <span>☁️</span> Cloud Explorer
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-section-label">INTEL & REPORTS</div>
+        <nav>
+          <ul class="nav-menu">
+            <li
+              class="nav-item"
+              id="nav-fingerprint"
+              onclick="showView('fingerprint', this)"
+            >
+              <span>🔬</span> Fingerprinting
+            </li>
+            <li
+              class="nav-item"
+              id="nav-exploitdb"
+              onclick="showView('exploitdb', this)"
+            >
+              <span>💀</span> Exploit-DB
+            </li>
+            <li
+              class="nav-item"
+              id="nav-threatmap"
+              onclick="showView('threatmap', this)"
+            >
+              <span>🌍</span> Threat Map
+            </li>
+            <li
+              class="nav-item"
+              id="nav-remediation"
+              onclick="showView('remediation', this)"
+            >
+              <span>🩹</span> Remediation
+            </li>
+            <li
+              class="nav-item"
+              id="nav-export"
+              onclick="showView('export', this)"
+            >
+              <span>📤</span> Export Suite
+            </li>
+            <li
+              class="nav-item"
+              id="nav-history"
+              onclick="showView('history', this)"
+            >
+              <span>📚</span> Scan History
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="stat-label">System Status</div>
+          <div id="system-status" class="status-badge status-online">
+            ● OPERATIONAL
+          </div>
+        </div>
+      </aside>
+
+      <!-- ===== MAIN AREA ===== -->
+      <div class="main-area">
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: LIVE MONITOR ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="live-view">
+          <header class="view-header">
+            <div>
+              <h1>Live SSRF Monitor</h1>
+              <p id="target-info" class="subtitle">
+                Waiting for scan to start...
+              </p>
+            </div>
+            <div
+              id="scan-stopped-banner"
+              class="scan-stopped-banner"
+              style="display: none"
+            >
+              ⏹ SCAN FINISHED — Monitor Frozen
+            </div>
+            <div id="scan-status-badge" class="badge badge-idle">IDLE</div>
+          </header>
+
+          <!-- Stats Row -->
+          <div class="header-stats">
+            <div class="stat-card">
+              <div class="stat-label">Total Requests</div>
+              <div class="stat-value" id="stat-requests">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Vulnerabilities</div>
+              <div class="stat-value red" id="stat-vulnerabilities">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Payloads Tested</div>
+              <div class="stat-value cyan" id="stat-payloads">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Bypasses Hit</div>
+              <div class="stat-value yellow" id="stat-bypasses">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Scan Duration</div>
+              <div class="stat-value" id="stat-duration">0s</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Req/s (RPS)</div>
+              <div class="stat-value green" id="stat-rps">0</div>
+            </div>
+          </div>
+
+          <!-- Charts + Logs grid -->
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Phase Discovery Timeline</span>
+                <span class="badge badge-running" id="vuln-chart-badge"
+                  >IDLE</span
+                >
+              </div>
+              <div class="chart-container">
+                <canvas id="vulnChart"></canvas>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Real-time Activity Log</span>
+                <button class="btn-ghost" onclick="clearLogs()">Clear</button>
+              </div>
+              <div id="log-feed" class="log-container">
+                <div class="log-entry info">
+                  System ready. Waiting for scan initialization...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technique Breakdown -->
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Vulnerability Techniques Detected</span>
+            </div>
+            <div id="technique-list" class="technique-grid">
+              <div class="empty-state">No vulnerabilities detected yet.</div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: NETWORK TOPOLOGY ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="topology-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Network Topology Map</h1>
+              <p class="subtitle">
+                Visualize the discovered internal infrastructure.
+              </p>
+            </div>
+          </header>
+          <div class="panel" style="height: 480px; flex-shrink: 0;">
+            <div class="panel-header">
+              <span class="panel-title">Live Network Graph</span>
+              <span class="badge badge-idle" id="topo-status">NO DATA</span>
+            </div>
+            <div id="topo-canvas" class="topo-canvas" style="position: relative; height: 420px; width: 100%;">
+              <div id="topo-network" style="width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px;"></div>
+            </div>
+          </div>
+          <div class="two-col-grid" style="flex-shrink: 0; min-height: 250px;">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Discovered Hosts</span>
+              </div>
+              <div id="topo-host-list" class="list-container">
+                <div class="empty-state">No hosts yet.</div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Open Services</span>
+              </div>
+              <div id="topo-service-list" class="list-container">
+                <div class="empty-state">No services yet.</div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: AI LOG ANALYSIS ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="ai-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>AI-Powered Log Analysis</h1>
+              <p class="subtitle">
+                Pattern detection and anomaly analysis on scan data.
+              </p>
+            </div>
+            <button class="btn-primary" onclick="runAiAnalysis()">
+              ▶ Run Analysis
+            </button>
+          </header>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Anomaly Detection</span>
+              </div>
+              <div id="ai-anomaly-feed" class="log-container">
+                <div class="log-entry info">
+                  Click "Run Analysis" to start AI analysis of current logs.
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Pattern Classification</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="aiPatternChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">AI Insights</span>
+            </div>
+            <div id="ai-insights" class="insight-grid">
+              <div class="insight-card">
+                <div class="insight-icon">🔍</div>
+                <div class="insight-title">Blind SSRF Pattern</div>
+                <div class="insight-body">
+                  Look for delays &gt;2s in out-of-band channels.
+                </div>
+              </div>
+              <div class="insight-card">
+                <div class="insight-icon">⚡</div>
+                <div class="insight-title">WAF Fingerprinted</div>
+                <div class="insight-body">
+                  Response signatures match Cloudflare rules.
+                </div>
+              </div>
+              <div class="insight-card">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-title">High-Value Endpoint</div>
+                <div class="insight-body">
+                  Metadata endpoint at 169.254.169.254 accessible.
+                </div>
+              </div>
+              <div class="insight-card">
+                <div class="insight-icon">🧠</div>
+                <div class="insight-title">Payload Recommendation</div>
+                <div class="insight-body">
+                  URL-encoding bypass likely to succeed on current target.
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: CVSS SCORING ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="severity-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>CVSS Vulnerability Scoring</h1>
+              <p class="subtitle">
+                Risk assessment and severity scoring for detected
+                vulnerabilities.
+              </p>
+            </div>
+          </header>
+          <div class="header-stats">
+            <div class="stat-card">
+              <div class="stat-label">Critical (9.0-10)</div>
+              <div class="stat-value red" id="cvss-critical">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">High (7.0-8.9)</div>
+              <div class="stat-value yellow" id="cvss-high">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Medium (4.0-6.9)</div>
+              <div class="stat-value cyan" id="cvss-medium">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Low (0.1-3.9)</div>
+              <div class="stat-value green" id="cvss-low">0</div>
+            </div>
+          </div>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Severity Distribution</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="cvssChart"></canvas>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Findings</span>
+              </div>
+              <div id="cvss-findings" class="log-container">
+                <div class="empty-state">No vulnerabilities scored yet.</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">CVSS Calculator</span>
+            </div>
+            <div class="cvss-calc">
+              <div class="cvss-row">
+                <label>Attack Vector</label>
+                <select id="cvss-av" class="select-field">
+                  <option value="3.9">Network (N)</option>
+                  <option value="2.8">Adjacent (A)</option>
+                  <option value="1.6">Local (L)</option>
+                  <option value="0.85">Physical (P)</option>
+                </select>
+              </div>
+              <div class="cvss-row">
+                <label>Attack Complexity</label>
+                <select id="cvss-ac" class="select-field">
+                  <option value="0.77">Low (L)</option>
+                  <option value="0.44">High (H)</option>
+                </select>
+              </div>
+              <div class="cvss-row">
+                <label>Confidentiality Impact</label>
+                <select id="cvss-ci" class="select-field">
+                  <option value="0.56">High (H)</option>
+                  <option value="0.22">Low (L)</option>
+                  <option value="0.0">None (N)</option>
+                </select>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 1rem;
+                  padding: 1rem;
+                "
+              >
+                <button class="btn-primary" onclick="calcCvss()">
+                  Calculate Score
+                </button>
+                <div id="cvss-result" class="cvss-score">-</div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: PAYLOAD IDE ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="payload-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Payload Mutation IDE</h1>
+              <p class="subtitle">
+                Craft, mutate and test custom SSRF payloads.
+              </p>
+            </div>
+            <button class="btn-primary" onclick="runPayload()">
+              ▶ Send Payload
+            </button>
+          </header>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Payload Editor</span>
+              </div>
+              <div
+                style="
+                  padding: 1rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.75rem;
+                  flex: 1;
+                "
+              >
+                <div class="form-group">
+                  <label class="form-label">Target URL</label>
+                  <input
+                    type="text"
+                    id="payload-target"
+                    class="input-field"
+                    placeholder="https://target.com/fetch?url=INJECT"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Payload</label>
+                  <textarea
+                    id="payload-editor"
+                    class="code-editor"
+                    rows="8"
+                    placeholder="http://169.254.169.254/latest/meta-data/&#10;file:///etc/passwd&#10;dict://localhost:6379/info"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Encoding</label>
+                  <select id="payload-encoding" class="select-field">
+                    <option value="none">None (Raw)</option>
+                    <option value="url">URL Encode</option>
+                    <option value="double-url">Double URL Encode</option>
+                    <option value="base64">Base64</option>
+                    <option value="hex">Hex Encode</option>
+                    <option value="unicode">Unicode Escape</option>
+                  </select>
+                </div>
+                <button class="btn-secondary" onclick="mutatePayload()">
+                  ⚙️ Generate Mutations
+                </button>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Response</span>
+              </div>
+              <div id="payload-response" class="log-container code-font">
+                <div class="empty-state">Response will appear here...</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Mutation Library</span
+              ><button class="btn-ghost" onclick="loadPresets()">
+                Load Presets
+              </button>
+            </div>
+            <div id="mutation-list" class="mutation-grid">
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://169.254.169.254/latest/meta-data/"
+              >
+                AWS Metadata
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://metadata.google.internal/computeMetadata/v1/"
+              >
+                GCP Metadata
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://169.254.169.254/metadata/instance?api-version=2021-02-01"
+              >
+                Azure Metadata
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="file:///etc/passwd"
+              >
+                File Read (/etc/passwd)
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="dict://localhost:6379/info"
+              >
+                Redis Dict
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="gopher://localhost:25/EHLO%20localhost"
+              >
+                Gopher SMTP
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://127.0.0.1:8080/"
+              >
+                Localhost:8080
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://0177.0.0.1/"
+              >
+                Octal Bypass
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://0x7f000001/"
+              >
+                Hex IP Bypass
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://spoofed.attacker.com@169.254.169.254/"
+              >
+                @ Confusion
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://ⓐⓟⓟ.internal/"
+              >
+                Unicode Domain
+              </div>
+              <div
+                class="mutation-chip"
+                onclick="selectMutation(this)"
+                data-payload="http://127.1/"
+              >
+                Short IP
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: WAF EVASION ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="waf-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>WAF Evasion Profiles</h1>
+              <p class="subtitle">
+                Presets and bypasses for common WAF vendors.
+              </p>
+            </div>
+          </header>
+          <div class="waf-grid">
+            <div class="waf-card" onclick="selectWAF('cloudflare')">
+              <div class="waf-icon">🟠</div>
+              <div class="waf-name">Cloudflare</div>
+              <div class="waf-count">12 techniques</div>
+            </div>
+            <div class="waf-card" onclick="selectWAF('akamai')">
+              <div class="waf-icon">🔵</div>
+              <div class="waf-name">Akamai Kona</div>
+              <div class="waf-count">9 techniques</div>
+            </div>
+            <div class="waf-card" onclick="selectWAF('awswaf')">
+              <div class="waf-icon">🟡</div>
+              <div class="waf-name">AWS WAF</div>
+              <div class="waf-count">11 techniques</div>
+            </div>
+            <div class="waf-card" onclick="selectWAF('modsec')">
+              <div class="waf-icon">🔴</div>
+              <div class="waf-name">ModSecurity</div>
+              <div class="waf-count">17 techniques</div>
+            </div>
+            <div class="waf-card" onclick="selectWAF('f5')">
+              <div class="waf-icon">⚫</div>
+              <div class="waf-name">F5 Big-IP</div>
+              <div class="waf-count">8 techniques</div>
+            </div>
+            <div class="waf-card" onclick="selectWAF('imperva')">
+              <div class="waf-icon">🟣</div>
+              <div class="waf-name">Imperva</div>
+              <div class="waf-count">10 techniques</div>
+            </div>
+          </div>
+          <div class="panel" id="waf-detail-panel">
+            <div class="panel-header">
+              <span class="panel-title" id="waf-detail-title"
+                >Select a WAF Profile</span
+              >
+            </div>
+            <div id="waf-technique-list" class="technique-grid">
+              <div class="empty-state">
+                Select a profile to view bypass techniques.
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: TRAFFIC REPEATER ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="repeater-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Traffic Interceptor / Repeater</h1>
+              <p class="subtitle">Manually craft and replay HTTP requests.</p>
+            </div>
+            <button class="btn-primary" onclick="sendRepeaterRequest()">
+              ▶ Send
+            </button>
+          </header>
+          <div class="repeater-layout">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Request</span>
+                <select id="repeater-method" class="select-field-sm">
+                  <option>GET</option>
+                  <option>POST</option>
+                  <option>PUT</option>
+                  <option>PATCH</option>
+                  <option>DELETE</option>
+                </select>
+              </div>
+              <div
+                style="
+                  padding: 1rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.75rem;
+                  flex: 1;
+                "
+              >
+                <input
+                  type="text"
+                  id="repeater-url"
+                  class="input-field"
+                  placeholder="https://target.com/api/endpoint"
+                />
+                <textarea
+                  id="repeater-headers"
+                  class="code-editor"
+                  rows="4"
+                  placeholder="Content-Type: application/json&#10;Authorization: Bearer TOKEN"
+                ></textarea>
+                <textarea
+                  id="repeater-body"
+                  class="code-editor"
+                  rows="6"
+                  placeholder='{"url": "http://169.254.169.254/"}'
+                ></textarea>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Response</span
+                ><span id="repeater-status" class="badge badge-idle">—</span>
+              </div>
+              <div
+                id="repeater-response"
+                class="log-container code-font"
+                style="flex: 1; height: auto"
+              >
+                <div class="empty-state">Response will appear here...</div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: DNS REBINDING ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="dns-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>DNS Rebinding Engine</h1>
+              <p class="subtitle">
+                Configure and simulate DNS rebinding attack flows.
+              </p>
+            </div>
+            <button class="btn-primary" onclick="launchDnsRebind()">
+              ⚡ Launch
+            </button>
+          </header>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Attack Configuration</span>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                "
+              >
+                <div class="form-group">
+                  <label class="form-label">Target Origin</label>
+                  <input
+                    type="text"
+                    id="dns-target"
+                    class="input-field"
+                    placeholder="http://target.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Rebind-to IP</label>
+                  <input
+                    type="text"
+                    id="dns-rebind-ip"
+                    class="input-field"
+                    placeholder="192.168.1.1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">DNS TTL (seconds)</label>
+                  <input
+                    type="number"
+                    id="dns-ttl"
+                    class="input-field"
+                    value="1"
+                    min="1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Attack Mode</label>
+                  <select id="dns-mode" class="select-field">
+                    <option>Classic Rebind (Timer)</option>
+                    <option>Multiple-A Record</option>
+                    <option>DNS Pinning Bypass</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Attack Log</span>
+              </div>
+              <div id="dns-log" class="log-container">
+                <div class="log-entry info">
+                  Configure and launch the attack to see logs here.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">DNS Rebinding Flow</span>
+            </div>
+            <div class="flow-diagram">
+              <div class="flow-step">
+                1. Browser fetches<br /><strong>attacker.com</strong>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                2. DNS resolves to<br /><strong>attacker's IP</strong>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                3. JS rebinds DNS<br /><strong>TTL expires</strong>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                4. DNS resolves to<br /><strong>internal IP</strong>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                5. SOP bypass —<br /><strong>data exfiltrated</strong>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: CLOUD EXPLORER ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="cloud-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Cloud Metadata Explorer</h1>
+              <p class="subtitle">
+                Probe AWS, Azure, and GCP metadata endpoints.
+              </p>
+            </div>
+          </header>
+          <div class="cloud-tabs">
+            <button class="cloud-tab active" onclick="setCloudTab('aws', this)">
+              ☁️ AWS
+            </button>
+            <button class="cloud-tab" onclick="setCloudTab('gcp', this)">
+              🟢 GCP
+            </button>
+            <button class="cloud-tab" onclick="setCloudTab('azure', this)">
+              🔵 Azure
+            </button>
+          </div>
+          <div class="dashboard-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Metadata Endpoints</span>
+              </div>
+              <div id="cloud-endpoint-list" class="list-container"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Response</span
+                ><button class="btn-ghost" onclick="probeCloudEndpoint()">
+                  Probe
+                </button>
+              </div>
+              <div id="cloud-response" class="log-container code-font">
+                <div class="empty-state">Select an endpoint and probe it.</div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: FINGERPRINTING ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="fingerprint-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Target Fingerprinting</h1>
+              <p class="subtitle">OS, banner, and service version detection.</p>
+            </div>
+            <button class="btn-primary" onclick="runFingerprint()">
+              🔬 Fingerprint
+            </button>
+          </header>
+          <div class="two-col-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Target</span>
+              </div>
+              <div
+                style="
+                  padding: 1rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.75rem;
+                "
+              >
+                <input
+                  type="text"
+                  id="fp-target"
+                  class="input-field"
+                  placeholder="https://target.com"
+                />
+                <div class="toggle-group">
+                  <label
+                    ><input type="checkbox" id="fp-headers" checked /> HTTP
+                    Headers</label
+                  >
+                  <label
+                    ><input type="checkbox" id="fp-banner" checked /> Banner
+                    Grab</label
+                  >
+                  <label
+                    ><input type="checkbox" id="fp-os" checked /> OS
+                    Detection</label
+                  >
+                  <label
+                    ><input type="checkbox" id="fp-tech" checked /> Tech
+                    Stack</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Fingerprint Results</span>
+              </div>
+              <div id="fp-results" class="log-container">
+                <div class="empty-state">Click Fingerprint to begin...</div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Detected Technologies</span>
+            </div>
+            <div id="fp-tech-tags" class="mutation-grid">
+              <div class="empty-state">
+                Technologies will be listed here after scan.
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: EXPLOIT-DB ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="exploitdb-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Exploit-DB Integration</h1>
+              <p class="subtitle">
+                Search and view CVEs directly linked to discovered
+                vulnerabilities.
+              </p>
+            </div>
+          </header>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">CVE Search</span>
+            </div>
+            <div
+              style="
+                padding: 1rem;
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+              "
+            >
+              <input
+                type="text"
+                id="edb-search"
+                class="input-field"
+                placeholder="Search CVE, EDB-ID or keyword (e.g. SSRF, CVE-2021-26855)..."
+                onkeydown="if (event.key === 'Enter') searchExploitDb();"
+              />
+              <button class="btn-primary" onclick="searchExploitDb()">
+                Search
+              </button>
+            </div>
+            <div
+              id="edb-results"
+              class="list-container"
+              style="max-height: 300px"
+            >
+              <div class="empty-state">Enter a search query above.</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Related to Current Findings</span
+              ><button class="btn-ghost" onclick="loadRelatedCves()">
+                Refresh
+              </button>
+            </div>
+            <div id="edb-related" class="list-container">
+              <div class="empty-state">Run a scan to see related CVEs.</div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: THREAT MAP ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="threatmap-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Global SSRF Threat Intelligence Feed</h1>
+              <p class="subtitle">
+                Real-time threat intelligence from global SSRF activity.
+              </p>
+            </div>
+            <span id="threat-feed-status" class="badge badge-running"
+              >LIVE</span
+            >
+          </header>
+          <div class="panel" style="min-height: 400px">
+            <div class="panel-header">
+              <span class="panel-title">Threat Map</span>
+            </div>
+            <div class="threat-map-placeholder">
+              <div class="globe-pulse"></div>
+              <div class="threat-map-label">
+                🌍 Global Threat Map — Real-time feed active
+              </div>
+              <div
+                id="threat-events"
+                style="
+                  position: absolute;
+                  bottom: 1rem;
+                  left: 1rem;
+                  right: 1rem;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.4rem;
+                  max-height: 140px;
+                  overflow: hidden;
+                "
+              ></div>
+            </div>
+          </div>
+          <div class="two-col-grid">
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Top Targeted Countries</span>
+              </div>
+              <div class="chart-container">
+                <canvas id="threatCountryChart"></canvas>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Active IOCs</span>
+              </div>
+              <div id="threat-ioc-list" class="log-container"></div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: REMEDIATION ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="remediation-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Automated Remediation</h1>
+              <p class="subtitle">
+                One-click patch suggestions for detected vulnerabilities.
+              </p>
+            </div>
+            <button class="btn-primary" onclick="generateRemediation()">
+              ⚙️ Generate Report
+            </button>
+          </header>
+          <div id="remediation-cards" class="remediation-grid">
+            <div class="empty-state" style="grid-column: 1/-1">
+              Run a scan then click "Generate Report" to see remediation steps.
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: EXPORT SUITE ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="export-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Export Suite</h1>
+              <p class="subtitle">
+                Generate and download reports in multiple formats.
+              </p>
+            </div>
+          </header>
+          <div class="export-grid">
+            <div class="export-card" onclick="exportReport('pdf')">
+              <div class="export-icon">📄</div>
+              <div class="export-format">PDF Report</div>
+              <div class="export-desc">
+                Full executive report with charts and findings.
+              </div>
+              <button class="btn-primary" style="margin-top: auto">
+                Download PDF
+              </button>
+            </div>
+            <div class="export-card" onclick="exportReport('json')">
+              <div class="export-icon">📋</div>
+              <div class="export-format">JSON Data</div>
+              <div class="export-desc">Machine-readable raw scan output.</div>
+              <button class="btn-primary" style="margin-top: auto">
+                Download JSON
+              </button>
+            </div>
+            <div class="export-card" onclick="exportReport('csv')">
+              <div class="export-icon">📊</div>
+              <div class="export-format">CSV Export</div>
+              <div class="export-desc">
+                Spreadsheet-compatible findings list.
+              </div>
+              <button class="btn-primary" style="margin-top: auto">
+                Download CSV
+              </button>
+            </div>
+            <div class="export-card" onclick="exportReport('markdown')">
+              <div class="export-icon">📝</div>
+              <div class="export-format">Markdown</div>
+              <div class="export-desc">
+                GitHub/GitLab-ready pentest summary.
+              </div>
+              <button class="btn-primary" style="margin-top: auto">
+                Download MD
+              </button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Recent Exports</span>
+            </div>
+            <div id="export-history" class="list-container">
+              <div class="empty-state">No exports yet.</div>
+            </div>
+          </div>
+        </main>
+
+        <!-- ~~~~~~~~~~~~~~~~~ VIEW: HISTORY ~~~~~~~~~~~~~~~~~ -->
+        <main class="view-content" id="history-view" style="display: none">
+          <header class="view-header">
+            <div>
+              <h1>Scan History</h1>
+              <p class="subtitle">
+                Browse and analyze previous SSRF scan reports.
+              </p>
+            </div>
+            <button class="btn-ghost" onclick="refreshHistory()">
+              Refresh
+            </button>
+          </header>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Available Reports</span>
+            </div>
+            <div class="history-list" id="history-items">
+              <div class="empty-state">Loading reports...</div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <!-- /.main-area -->
+    </div>
+    <!-- /.dashboard-container -->
+
+    <!-- Notifications Toast -->
+    <div
+      id="toast-container"
+      style="
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        z-index: 999;
+      "
+    ></div>
+
+    <!-- ~~~~~~~~~~~~~~~~~ MODAL: VULNERABILITY PROFILE ~~~~~~~~~~~~~~~~~ -->
+    <div id="finding-modal" class="modal-overlay" style="display: none">
+      <div class="modal-content premium-modal">
+        <div class="modal-header">
+          <div class="header-main">
+            <h2 id="modal-title">Vulnerability Detail</h2>
+            <div id="modal-severity" class="detail-value-badge">CRITICAL</div>
+          </div>
+          <button class="btn-ghost modal-close" onclick="closeFindingDetail()">
+            ✕
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-tabs">
+            <button class="tab-btn active" onclick="switchModalTab('overview')">
+              Overview
+            </button>
+            <button class="tab-btn" onclick="switchModalTab('technical')">
+              Technical Evidence
+            </button>
+            <button class="tab-btn" onclick="switchModalTab('remediation')">
+              Remediation
+            </button>
+            <button class="tab-btn" onclick="switchModalTab('render')">
+              Visual Render
+            </button>
+          </div>
+
+          <div id="modal-tab-overview" class="tab-content active">
+            <div class="detail-grid">
+              <div class="detail-section full-width">
+                <label>Target URL & Method</label>
+                <div class="url-bar">
+                  <span id="modal-method" class="method-badge">POST</span>
+                  <span id="modal-url" class="detail-value"
+                    >https://target.internal/api/v1/resource</span
+                  >
+                </div>
+              </div>
+              <div class="detail-section">
+                <label>Injection Parameter</label>
+                <div id="modal-param" class="detail-value">stockApi</div>
+              </div>
+              <div class="detail-section">
+                <label>Attack Phase</label>
+                <div id="modal-phase" class="detail-value">
+                  Cloud Metadata Probe
+                </div>
+              </div>
+              <div class="detail-section">
+                <label>Confidence Score</label>
+                <div id="modal-confidence" class="detail-value">98%</div>
+              </div>
+              <div class="detail-section">
+                <label>CVSS 3.1 Score</label>
+                <div id="modal-cvss" class="cvss-score-large">9.1</div>
+              </div>
+              <div class="detail-section full-width">
+                <label>AI Insight</label>
+                <div id="modal-ai-insight" class="ai-insight-box">
+                  This finding indicates a potential IMDSv1 access
+                  vulnerability, which could allow an attacker to retrieve AWS
+                  temporary credentials.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="modal-tab-technical" class="tab-content">
+            <div class="detail-section">
+              <label>Exploit Payload</label>
+              <div class="payload-container">
+                <pre id="modal-payload" class="code-block"></pre>
+                <button class="btn-copy" onclick="copyModalPayload()">
+                  Copy Curl
+                </button>
+              </div>
+            </div>
+            <div class="detail-section">
+              <label>Response Headers</label>
+              <pre
+                id="modal-headers"
+                class="code-block"
+                style="
+                  max-height: 120px;
+                  font-size: 0.75rem;
+                  color: var(--text-secondary);
+                "
+              ></pre>
+            </div>
+            <div class="detail-section">
+              <label>Full Response Evidence</label>
+              <pre
+                id="modal-evidence"
+                class="code-block"
+                style="max-height: 250px; border-color: rgba(0, 242, 96, 0.2)"
+              ></pre>
+            </div>
+          </div>
+
+          <div id="modal-tab-remediation" class="tab-content">
+            <div class="remediation-steps" id="modal-remediation">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div id="modal-tab-render" class="tab-content">
+            <div class="render-browser-frame">
+              <div class="browser-address-bar">
+                <span class="browser-dot red"></span>
+                <span class="browser-dot yellow"></span>
+                <span class="browser-dot green"></span>
+                <div class="browser-url-display" id="render-url-display">
+                  http://internal.target/
+                </div>
+              </div>
+              <iframe
+                id="modal-render-frame"
+                sandbox="allow-forms allow-scripts"
+                style="
+                  width: 100%;
+                  flex: 1;
+                  background: #fff;
+                  border: none;
+                "
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="footer-actions">
+            <button class="btn-secondary" onclick="exportMetricToRepeater()">
+              Send to Repeater
+            </button>
+          </div>
+          <button class="btn-primary" onclick="closeFindingDetail()">
+            Close Analysis
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <audio
+      id="alert-sound"
+      src="https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3"
+      preload="auto"
+    ></audio>
+    <audio
+      id="critical-sound"
+      src="https://assets.mixkit.co/sfx/preview/mixkit-urgent-simple-alarm-loop-2992.mp3"
+      preload="auto"
+    ></audio>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  </body>
+</html>

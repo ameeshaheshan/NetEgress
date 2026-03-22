@@ -1,0 +1,2349 @@
+{
+  "scan_info": {
+    "target_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+    "scan_type": "full",
+    "phases_tested": [
+      "local_ips",
+      "cloud_metadata",
+      "protocol_confusion",
+      "crlf_injection",
+      "bypass_encoding",
+      "dns_rebinding",
+      "port_scanning",
+      "parameter_fuzzing",
+      "header_injection",
+      "xxe_ssrf"
+    ]
+  },
+  "scan_start_time": "2026-03-21T22:11:27.704556",
+  "scan_end_time": "2026-03-21T22:14:57.874185",
+  "duration_seconds": 210.1696286201477,
+  "total_requests": 447,
+  "vulnerabilities_found": 59,
+  "baseline": {
+    "avg_response_size": 19.0,
+    "status_codes": {
+      "400": 10
+    },
+    "content_hash": "35bca0f4e2a5634b00a86d939333d2f3",
+    "avg_response_time": 1.0175277471542359,
+    "headers_fingerprint": "ConnectionContent-EncodingContent-LengthContent-TypeSet-CookieX-Frame-Options"
+  },
+  "vulnerabilities": [
+    {
+      "payload": "http://localhost/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=fGR3J39eNtxtYsBG6qgQqJ4FY5n0LbW5; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.8576056957244873,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.615439772605896,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://localhost",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=0RvdwfgOblvS1ktue43fcCZi3qxVwDV7; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 3.050956964492798,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=zggP5yAOSKsWbWCXppyOEp4eDqNOyOmY; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 6.372686862945557,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch",
+        "Response time deviation: 526.29%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.615439772605896,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=M0kM8PCbRzzLzuJFY7gc0nyzOqldcjbG; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 7.7772016525268555,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 664.32%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=2OleafAgKeoDHpccttJnPXkK6taFyLzg; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 9.126191854476929,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 796.90%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=ceu4iG99r0tqkpjm8ATw233Zb7GMeqZc; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 4.893822431564331,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch",
+        "Response time deviation: 380.95%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.615439772605896,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.127.127.127",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 3.5493273735046387,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch",
+        "Response time deviation: 248.82%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "Local Ips",
+        "confidence": 0.6533176004886627,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Local Ips"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://2130706433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 6.160786390304565,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch",
+        "Response time deviation: 505.47%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "Local Ips",
+        "confidence": 0.6533176004886627,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Local Ips"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://2130706433/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 8.384360551834106,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch",
+        "Response time deviation: 723.99%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "Local Ips",
+        "confidence": 0.6533176004886627,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Local Ips"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.127.127.127/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 12.02721881866455,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch",
+        "Response time deviation: 1082.00%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "Local Ips",
+        "confidence": 0.6533176004886627,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Local Ips"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "git://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=git://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.2443499565124512,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: git://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.564113050699234,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "wss://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=wss://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 2.699370861053467,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: wss://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5397022068500519,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "rtmp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtmp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 3.8883566856384277,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtmp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 282.14%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5451193451881409,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "smb://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smb://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 5.049727916717529,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: smb://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 396.27%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5687084794044495,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "svn://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 6.354740858078003,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: svn://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 524.53%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5611593425273895,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "s3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=s3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 73,
+        "response_time": 7.353588104248047,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: s3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch",
+        "Response time deviation: 622.69%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5532910823822021,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "sip://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sip://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 8.31322693824768,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: sip://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 717.00%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5531630218029022,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "sftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 9.212431192398071,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 805.37%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5773717761039734,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "sips://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sips://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 10.30672025680542,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sips://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 912.92%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5315311551094055,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "chrome://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=chrome://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 11.382338523864746,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: chrome://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch",
+        "Response time deviation: 1018.63%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.539279043674469,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http+unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http+unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 81,
+        "response_time": 12.597544193267822,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 12: http+unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 326.32%",
+        "Content hash mismatch",
+        "Response time deviation: 1138.05%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5839674174785614,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "nfs://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=nfs://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 14.870980024337769,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: nfs://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 1361.48%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5684870183467865,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "svn+ssh://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn+ssh://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "95"
+        },
+        "content_length": 79,
+        "response_time": 16.315769910812378,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: svn+ssh://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch",
+        "Response time deviation: 1503.47%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5665410757064819,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "udp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=udp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 17.5128972530365,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: udp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 1621.12%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5671361088752747,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "rsync://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rsync://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 18.9550039768219,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: rsync://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch",
+        "Response time deviation: 1762.85%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5640140771865845,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "data://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=data://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 20.108819007873535,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: data://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1876.24%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5578890442848206,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "news://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=news://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 21.137767553329468,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: news://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1977.37%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5528049468994141,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "tftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 23.202851057052612,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: tftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 2180.32%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5709757208824158,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "tcp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tcp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 24.090744972229004,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: tcp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 2267.58%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5626743733882904,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "imap://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=imap://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 26.075140953063965,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: imap://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 2462.60%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5698122978210449,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "smtp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smtp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 27.515460968017578,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: smtp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 2604.15%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5834579765796661,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "pop3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=pop3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "93"
+        },
+        "content_length": 75,
+        "response_time": 28.592772245407104,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: pop3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 2710.02%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5726285576820374,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "javascript://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=javascript://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 82,
+        "response_time": 28.909309148788452,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 13: javascript://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 331.58%",
+        "Content hash mismatch",
+        "Response time deviation: 2741.13%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5481326580047607,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "about://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=about://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 13.55491042137146,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: about://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch",
+        "Response time deviation: 1232.14%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5422074794769287,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 19.611727714538574,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1827.39%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.567391574382782,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "ws://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ws://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 73,
+        "response_time": 25.61342978477478,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: ws://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch",
+        "Response time deviation: 2417.22%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.544975996017456,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "rtsp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtsp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 30.920225858688354,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtsp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 2938.76%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5480571985244751,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "127.0.0.1%20",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=127.0.0.1%20]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Content-Length": "47"
+        },
+        "content_length": 27,
+        "response_time": 2.2336385250091553,
+        "method": "POST",
+        "content_preview": "b'{\"error\":\"Invalid request\"}'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 42.11%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Parameter Payloads",
+        "confidence": 0.5753550231456757,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Parameter Payloads"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=nPRErlP44RwvCvKH8OQCdoxhXmUsslOT; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 4.578606843948364,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch",
+        "Response time deviation: 349.97%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.615439772605896,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://google.com@127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://google.com@127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=y8Oy7EYfY985lZ3LoNlRhuNOLbdXxmFZ; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 5.975673198699951,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 487.27%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=i83cnLQ09XP7cF6Z36Sm2L0207e8VRG6; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 7.298161506652832,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 617.24%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=jdcryTHDs1VZyEIe6XZ76EXK1sP586n6; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 6.997135639190674,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 587.66%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=7ZLc4pM2ahabbMGdaEE1BlrPeVtgEX5B; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 8.730634689331055,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch",
+        "Response time deviation: 758.02%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "WAF Bypass",
+        "confidence": 0.6088161468505859,
+        "source": "local-payload",
+        "match_title": "waf_bypass.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":135",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:135]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.1746728420257568,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :135\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5558155179023743,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":995",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:995]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 2.189016342163086,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :995\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5453351140022278,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":139",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:139]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 4.35882306098938,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :139\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 328.37%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5548122525215149,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":445",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:445]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 5.379678726196289,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :445\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 428.70%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5675287544727325,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":110",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:110]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 74,
+        "response_time": 7.38989520072937,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :110\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 626.26%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5546366572380066,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":389",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:389]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 7.726285219192505,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :389\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 659.32%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5586186051368713,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":636",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:636]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 9.538469552993774,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :636\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 837.42%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.564542680978775,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":993",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:993]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 10.609670639038086,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :993\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 942.69%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5756572186946869,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":443",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:443]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 11.840015411376953,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :443\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 1063.61%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5662216544151306,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":3000",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3000]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 12.79462194442749,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3000\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1157.42%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5472784042358398,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":587",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:587]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 14.760248899459839,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :587\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 1350.60%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5714849829673767,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":1433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 15.885589838027954,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1433\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1461.19%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5581876039505005,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":1521",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1521]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 16.995230436325073,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1521\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 1570.25%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "General SSRF",
+        "confidence": 0.5455885827541351,
+        "source": "local-payload",
+        "match_title": "protocols.txt"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":1080",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1080]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 3.5581302642822266,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1080\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch",
+        "Response time deviation: 249.68%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5508755743503571,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":88",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:88]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 9.791624307632446,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :88\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch",
+        "Response time deviation: 862.30%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5655461847782135,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    },
+    {
+      "payload": ":143",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:143]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 14.203384637832642,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :143\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch",
+        "Response time deviation: 1295.87%"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "Protocols",
+        "confidence": 0.5677227079868317,
+        "source": "Local Payload Research",
+        "match_title": "Payload Pack: Protocols"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF)\nContext: Exploit for X-Skipper-Proxy v0.13.237 - Server Side Request Forgery (SSRF). Platform: multiple. Type..."
+    }
+  ],
+  "remediation": {
+    "total_vulnerabilities": 59,
+    "unique_vulnerability_types": 2,
+    "severity_breakdown": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 59,
+      "LOW": 0
+    },
+    "recommendations": [
+      {
+        "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+        "count": 15,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_HEURISTIC_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "http://localhost/admin",
+          "http://localhost",
+          "http://127.0.0.1/admin",
+          "http://127.0.0.1",
+          "http://127.0.0.1:80"
+        ]
+      },
+      {
+        "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+        "count": 44,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_POTENTIAL_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "git://",
+          "wss://",
+          "rtmp://",
+          "smb://",
+          "svn://"
+        ]
+      }
+    ],
+    "summary": "Detected 59 SSRF vulnerabilities: 59 MEDIUM"
+  }
+}

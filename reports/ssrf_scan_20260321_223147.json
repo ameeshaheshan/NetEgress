@@ -1,0 +1,4229 @@
+{
+  "scan_info": {
+    "target_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+    "scan_type": "full",
+    "phases_tested": [
+      "local_ips",
+      "cloud_metadata",
+      "protocol_confusion",
+      "crlf_injection",
+      "bypass_encoding",
+      "dns_rebinding",
+      "port_scanning",
+      "parameter_fuzzing",
+      "header_injection",
+      "xxe_ssrf"
+    ]
+  },
+  "scan_start_time": "2026-03-21T22:31:18.188845",
+  "scan_end_time": "2026-03-21T22:31:47.174018",
+  "duration_seconds": 28.985174417495728,
+  "total_requests": 447,
+  "vulnerabilities_found": 111,
+  "baseline": {
+    "avg_response_size": 19.0,
+    "status_codes": {
+      "400": 10
+    },
+    "content_hash": "35bca0f4e2a5634b00a86d939333d2f3",
+    "avg_response_time": 1.0151120901107789,
+    "headers_fingerprint": "ConnectionContent-EncodingContent-LengthContent-TypeSet-CookieX-Frame-Options"
+  },
+  "vulnerabilities": [
+    {
+      "payload": "http://localhost/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=NBwYBugLqmhaccwYPI2Eo5y4K5a41fiI; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.8855748176574707,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://localhost",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=8VW5iJR5EFgvZHL5Sz18UfXouYG4Jxec; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.945509672164917,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=xnWgCigqjQkNRYpwaMU6qJrkDkMmo6xk; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.9780387878417969,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=Io2ObwBjJwute3q5nB10ISYoy121OpZc; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.001554012298584,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=I4SFOewAaRjSKSZyxP7aXGcLbDrcIsQ0; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0153729915618896,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=bAsj0YBKDlggVfY2TuZ4RddfJsRboRvu; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0585055351257324,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://localhost:80/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=XCYgttTgnJLUQEEkQW4OAmyhS91SqGmy; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.9201817512512207,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://localhost:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=RQhteOIFwfh6sWt7JVG9LGhaPx6U2tkp; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9566149711608887,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://0.0.0.0/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://0.0.0.0/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "69"
+        },
+        "content_length": 57,
+        "response_time": 0.942230224609375,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid IPV4 address\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 200.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://0.0.0.0",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://0.0.0.0]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "69"
+        },
+        "content_length": 57,
+        "response_time": 0.9942023754119873,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid IPV4 address\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 200.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=pupXJYOgbFPfn2RbT7nZe0ykS2thZtEo; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.0367374420166016,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=nHANZK2jI3qsUkRYr8pkRLP8kPiqLdaI; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.1017487049102783,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=2zn83jsRBTCpVPmcBDCA5b02OwAzQKrq; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.034224510192871,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=sTpXePMcqnVycCXD40jzssjwQJUFDD6f; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 1.0521762371063232,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.127.127.127/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 0.9714009761810303,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.127.127.127",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.127.127.127]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.0140635967254639,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://2130706433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 1.031261920928955,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://2130706433/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://2130706433/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 421,
+        "headers": {
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Length": "32"
+        },
+        "content_length": 12,
+        "response_time": 0.9651176929473877,
+        "method": "POST",
+        "content_preview": "b'Invalid host'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 421",
+        "Response size deviation: 36.84%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1..",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1..]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "65"
+        },
+        "content_length": 53,
+        "response_time": 0.9747405052185059,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid hostname\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 178.95%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1../admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1../admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "65"
+        },
+        "content_length": 53,
+        "response_time": 0.9953351020812988,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Invalid hostname\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 178.95%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "local_ips",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.9248244762420654,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: http://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "https://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=https://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.9342477321624756,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: https://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9183690547943115,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: ftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "sftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.8688561916351318,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ftps://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ftps://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.944209098815918,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: ftps://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "scp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=scp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9044516086578369,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: scp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ssh://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ssh://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9149198532104492,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: ssh://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "file://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=file://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9048159122467041,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: file://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "telnet://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=telnet://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 77,
+        "response_time": 0.9304037094116211,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: telnet://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "dict://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=dict://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9340872764587402,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: dict://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "gopher://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=gopher://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 0.9608607292175293,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: gopher://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ldaps://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ldaps://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.9270362854003906,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: ldaps://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ldap://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ldap://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9537343978881836,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: ldap://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "mongodb://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mongodb://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 0.9353036880493164,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: mongodb://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "mysql://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mysql://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 76,
+        "response_time": 0.9478445053100586,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: mysql://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "postgres://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=postgres://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 80,
+        "response_time": 0.915764570236206,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 11: postgres://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 321.05%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "redis://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=redis://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.9546792507171631,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: redis://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "memcache://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=memcache://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 80,
+        "response_time": 0.9439346790313721,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 11: memcache://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 321.05%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "ws://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=ws://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 73,
+        "response_time": 0.9746057987213135,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: ws://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "smtp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smtp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9715936183929443,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: smtp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "wss://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=wss://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.0126526355743408,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: wss://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "pop3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=pop3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "93"
+        },
+        "content_length": 75,
+        "response_time": 0.9557909965515137,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: pop3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "imap://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=imap://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9633042812347412,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: imap://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "nfs://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=nfs://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9704959392547607,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: nfs://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "smb://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=smb://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.037548542022705,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: smb://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "rtsp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtsp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.8953385353088379,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtsp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "tftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.022862434387207,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: tftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "rtmp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rtmp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9082939624786377,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: rtmp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "svn://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9798173904418945,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: svn://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "git://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=git://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.0328125953674316,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: git://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "svn+ssh://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=svn+ssh://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "95"
+        },
+        "content_length": 79,
+        "response_time": 1.0051085948944092,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: svn+ssh://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "rsync://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=rsync://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.9871170520782471,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: rsync://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "s3://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=s3://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 73,
+        "response_time": 1.0024497509002686,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 5: s3://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "tcp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=tcp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9989190101623535,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: tcp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "udp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=udp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 1.0134317874908447,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: udp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "sip://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sip://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 74,
+        "response_time": 0.9940295219421387,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: sip://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "sips://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sips://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9648857116699219,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sips://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "sftp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=sftp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9807591438293457,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: sftp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http+unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http+unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 81,
+        "response_time": 1.0158097743988037,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 12: http+unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 326.32%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "unix://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=unix://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9943311214447021,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: unix://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "chrome://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=chrome://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 0.954068660736084,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: chrome://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "about://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=about://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 76,
+        "response_time": 0.8933248519897461,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 8: about://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 300.00%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "data://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=data://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9829311370849609,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: data://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "javascript://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=javascript://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "96"
+        },
+        "content_length": 82,
+        "response_time": 0.959805965423584,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 13: javascript://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 331.58%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "mailto://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=mailto://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 0.9742522239685059,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: mailto://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "news://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=news://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.8888354301452637,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: news://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "nntp://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=nntp://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9402122497558594,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 7: nntp://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "webdavs://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=webdavs://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 1.0171327590942383,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 10: webdavs://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "webdav://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=webdav://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "92"
+        },
+        "content_length": 77,
+        "response_time": 1.0587713718414307,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 9: webdav://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 305.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "irc://",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=irc://]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.0238752365112305,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected authority at index 6: irc://\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "protocol_confusion",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1/admin",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1/admin]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
+          "Set-Cookie": "session=2une5CoJXsSLkXYLHdGdfkuSJmfBSEOg; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "921"
+        },
+        "content_length": 3174,
+        "response_time": 0.9200413227081299,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labs.css rel=stylesheet>\\n    '"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 16605.26%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "127.0.0.1%20",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=127.0.0.1%20]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Content-Type-Options": "nosniff",
+          "Connection": "close",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Content-Length": "47"
+        },
+        "content_length": 27,
+        "response_time": 0.9204714298248291,
+        "method": "POST",
+        "content_preview": "b'{\"error\":\"Invalid request\"}'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 42.11%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://google.com@127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://google.com@127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=KUzyduBNzOCl3tPNtiKs1FkznTs1IBPb; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9327232837677002,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1:80/",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1:80/]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=xHfiqkSQNapc7J8iYCIY1HeDWqfoLSnt; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9262816905975342,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://localhost:80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localhost:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=ub7AVSn2ph6VmrFZm1JV9A8wrZddwBns; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.8745114803314209,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.1/",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.1/]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=eCLrcIpBo7xsqaL9gBR2n1oboGIzbBOC; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9482638835906982,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://localHOST",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://localHOST]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=3mebdhFBDurvgJjz25htvwBm72E82grC; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.981269121170044,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "hTtP://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=hTtP://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=ZkF6VuaccUdEn7MnmHCNbKYKTQSdT7I7; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 1.0062816143035889,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1%00.example.com",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1%00.example.com]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "94"
+        },
+        "content_length": 79,
+        "response_time": 0.9294834136962891,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'URLs may only contain non-whitespace ascii\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 315.79%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=p5eIIOaQvQ44RVVr3NA2p7lD0HlDrp9N; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.8361780643463135,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": "http://127.0.0.1",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=http://127.0.0.1]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 200,
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Set-Cookie": "session=uzSu4b5hsy3ZeWaDWSNCOCaJPoMduRYb; Secure; HttpOnly; SameSite=None",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "1627"
+        },
+        "content_length": 10790,
+        "response_time": 0.9395530223846436,
+        "method": "POST",
+        "content_preview": "b'<!DOCTYPE html>\\n<html>\\n<!--LAB_HEAD_START-->\\n    <head>\\n        <link href=/resources/labheader/css/academyLabHeader.css rel=stylesheet>\\n        <link href=/resources/css/labsEcommerce.css rel=stylesh'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Unusual status code: 200",
+        "Response size deviation: 56689.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+      "confidence": 0.45,
+      "rag_match": null,
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "bypass_encoding",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":21",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:21]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 0.864600419998169,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :21\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":22",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:22]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 0.9290604591369629,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :22\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":23",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:23]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 0.9529149532318115,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :23\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":53",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:53]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 0.867459774017334,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :53\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":25",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:25]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 1.017120361328125,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :25\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":80",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:80]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 0.9661111831665039,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :80\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":81",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:81]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "89"
+        },
+        "content_length": 73,
+        "response_time": 0.9047715663909912,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :81\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":88",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:88]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 73,
+        "response_time": 0.9144558906555176,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :88\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 284.21%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":110",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:110]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "88"
+        },
+        "content_length": 74,
+        "response_time": 0.8764443397521973,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :110\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":135",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:135]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9337406158447266,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :135\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":143",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:143]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9479799270629883,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :143\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":139",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:139]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.0396246910095215,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :139\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":389",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:389]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9669609069824219,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :389\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":443",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:443]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9669246673583984,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :443\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":587",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:587]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9151248931884766,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :587\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":445",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:445]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9592502117156982,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :445\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":993",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:993]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.9531970024108887,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :993\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":636",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:636]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 1.050872802734375,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :636\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":995",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:995]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 74,
+        "response_time": 0.95737624168396,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :995\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 289.47%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":1080",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1080]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.9736964702606201,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1080\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":1433",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1433]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9805748462677002,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1433\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":1521",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1521]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9629499912261963,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1521\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":1723",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:1723]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.975074052810669,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :1723\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":2049",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:2049]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9501082897186279,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :2049\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":3000",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3000]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.942596435546875,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3000\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":3128",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3128]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9998598098754883,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3128\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":3389",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3389]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9354009628295898,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3389\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":3306",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:3306]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 1.0195553302764893,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :3306\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":4567",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:4567]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "91"
+        },
+        "content_length": 75,
+        "response_time": 0.9138479232788086,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :4567\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    },
+    {
+      "payload": ":5000",
+      "test_url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock [POST: stockApi=:5000]",
+      "response": {
+        "url": "https://0afb0071034feb02804fc124001b003b.web-security-academy.net/product/stock",
+        "status_code": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Content-Encoding": "gzip",
+          "Connection": "close",
+          "Content-Length": "90"
+        },
+        "content_length": 75,
+        "response_time": 0.9771409034729004,
+        "method": "POST",
+        "content_preview": "b'\"Invalid external stock check url \\'Expected scheme name at index 0: :5000\\'\"'"
+      },
+      "is_anomalous": true,
+      "anomaly_reasons": [
+        "Response size deviation: 294.74%",
+        "Content hash mismatch"
+      ],
+      "vulnerable": true,
+      "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+      "confidence": 0.25,
+      "rag_match": {
+        "type": "protocols",
+        "confidence": 1.0,
+        "source": "Local Research",
+        "match_title": "Payload: protocols.txt",
+        "resilient_mode": "Local Fallback"
+      },
+      "content_matches": [],
+      "oob_detected": false,
+      "attack_phase": "port_scanning",
+      "rag_analysis": "Matched Pattern: Payload: headers.txt\nContext: # Standard Headers\nHost\nX-Forwarded-For\nX-Forwarded-Host\nX-Client-IP\nX-Remote-IP\nX-Remote-Addr\nX-Ori..."
+    }
+  ],
+  "remediation": {
+    "total_vulnerabilities": 111,
+    "unique_vulnerability_types": 2,
+    "severity_breakdown": {
+      "CRITICAL": 0,
+      "HIGH": 0,
+      "MEDIUM": 111,
+      "LOW": 0
+    },
+    "recommendations": [
+      {
+        "vulnerability_type": "SSRF_HEURISTIC_ANOMALY",
+        "count": 25,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_HEURISTIC_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "http://localhost/admin",
+          "http://localhost",
+          "http://127.0.0.1:80/admin",
+          "http://127.0.0.1/admin",
+          "http://127.0.0.1"
+        ]
+      },
+      {
+        "vulnerability_type": "SSRF_POTENTIAL_ANOMALY",
+        "count": 86,
+        "severity": "MEDIUM",
+        "title": "Uncategorized SSRF Vulnerability: SSRF_POTENTIAL_ANOMALY",
+        "description": "Scanner detected potentially unsafe outward behavior without a specific signature match.",
+        "recommendations": [
+          "Investigate the affected endpoint manually for SSRF risk.",
+          "Validate all URL inputs strictly.",
+          "Monitor application logs."
+        ],
+        "code_examples": {},
+        "affected_payloads": [
+          "http://0.0.0.0/admin",
+          "http://0.0.0.0",
+          "http://127.0.0.1..",
+          "http://127.0.0.1../admin",
+          "http://"
+        ]
+      }
+    ],
+    "summary": "Detected 111 SSRF vulnerabilities: 111 MEDIUM"
+  }
+}
